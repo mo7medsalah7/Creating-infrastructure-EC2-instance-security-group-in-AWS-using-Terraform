@@ -16,3 +16,26 @@ resource "aws_eip_association" "associate" {
   allocation_id = aws_eip.my-eip.id
 
 }
+
+output "public_ip" {
+  description = "VMs Public IP"
+  value       = aws_instance.my-ec2.public_ip
+}
+
+output "private_ip" {
+  description = "VMs Private IP"
+  value       = aws_instance.my-ec2.private_ip
+}
+
+output "host_id" {
+  value = aws_instance.my-ec2.host_id
+}
+
+
+terraform {
+  backend "s3" {
+    bucket = "mosalahbucketdevoooo"
+    key    = "tf_store"
+    region = "us-east-2"
+  }
+}
