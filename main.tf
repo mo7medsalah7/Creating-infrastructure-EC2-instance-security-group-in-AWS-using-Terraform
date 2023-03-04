@@ -1,3 +1,4 @@
 module "ec2module" {
-  source = "./mymodule/modules"
+  source  = "./mymodule/modules"
+  tagName = var.tagName
 }
